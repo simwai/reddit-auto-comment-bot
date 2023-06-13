@@ -20,11 +20,6 @@ target_subreddits = [
 ]
 
 
-# Define the comment you want the bot to post
-my_url = "https://simwai.taplink.ws"
-comment_text = f"Hey there!\n\nI'd like to share a link with you: [My Taplink]({my_url}). There you'll find more of my projects and ways to donate me. \n\nIf you appreciate what I do and would like to show your support, a small donation would mean a lot! Every contribution helps me continue my efforts. Thank you in advance!"
-
-
 # Create a function to monitor new posts and post comments
 def monitor_and_comment():
     while True:
@@ -41,7 +36,7 @@ def monitor_and_comment():
                         for comment in submission.comments
                     ):
                         # Post a comment on your own submission
-                        submission.reply(comment_text)
+                        submission.reply(config.COMMENT_TEXT)
 
         # Wait for 60 seconds before checking for new posts again
         time.sleep(60)
