@@ -5,9 +5,7 @@ python3 -m venv myenv
 call myenv/Scripts/activate.bat
 
 :: Install dependencies
-if exist requirements.txt (
-    python3 main.py
-)
+pip3 install -r requirements.txt
 
 :: Run main.py or index.py depending on what exists
 if exist main.py (
