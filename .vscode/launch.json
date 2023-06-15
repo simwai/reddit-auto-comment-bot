@@ -13,10 +13,10 @@
             "justMyCode": true
         },
         {
-            "name": "Main",
+            "name": "Index",
             "type": "python",
             "request": "launch",
-            "program": "src/Index.py",
+            "program": "src/index.py",
             "console": "integratedTerminal",
             "justMyCode": true
         },
