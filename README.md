@@ -1,8 +1,3 @@
-**Dev-Man's Introduction:**
-Hey there, fellow developers! Dev-Man here, the superhero of programming, ready to save the day with my skills in Python and all things related to programming, AI, Machine Learning, statistics, finance, and more. But before we dive into the code, let me lighten the mood with a quick dev joke: Why do programmers prefer dark mode? Because light attracts bugs! 😄 Now, let's get to business!
-
----
-
 ## Reddit Auto Comment Bot
 
 The code you see here represents a Python script that automates commenting on new posts made by a specific Reddit user. It utilizes the PRAW library, which provides a convenient wrapper for the Reddit API.
