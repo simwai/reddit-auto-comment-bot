@@ -1,11 +1,11 @@
 #!/bin/bash
 
 # Create and activate a virtual environment (optional but recommended)
-python3.6 -m venv myenv
+python -m venv myenv
 source myenv/bin/activate
 
 # Install dependencies
-python3.6 -m pip install praw
+pip install praw
 
 # Run main.py or index.py depending on what exists
 if [ -f main.py ]; then

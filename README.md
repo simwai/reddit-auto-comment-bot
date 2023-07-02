@@ -13,6 +13,7 @@ Before you can execute and deploy this script, make sure you have the following 
 
 For execution:
 - Python 3.6 (https://www.python.org/downloads/)
+(Worked also with 3.11 on Windows)
 - PRAW library (install using `pip install praw`)
 
 For deployment on a Linux VPS:
