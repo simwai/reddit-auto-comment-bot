@@ -12,8 +12,8 @@ The code you see here represents a Python script that automates commenting on ne
 Before you can execute and deploy this script, make sure you have the following prerequisites installed:
 
 For execution:
-- Python 3.6 (https://www.python.org/downloads/)
-(Worked also with 3.11 on Windows)
+- Python (https://www.python.org/downloads/) </br>
+(Somehow 3.10.x makes problems, so don't use this Python version, I recommend 3.9.x or 3.11.x LTS)
 - PRAW library (install using `pip install praw`)
 
 For deployment on a Linux VPS:
@@ -47,13 +47,13 @@ To execute the script and deploy it with pm2, follow these steps:
    ```
 3. Install the required dependencies:
    ```
-   python3.6 -m pip install praw
+   python -m pip install praw
    ```
 4. Configure the `config.py` file as mentioned in the previous section.
 
 5. Make sure the `deploy.sh` script is executable:
    ```
-   chmod +x deploy.sh
+   sudo chmod +x deploy.sh
    ```
 6. Deploy the script using pm2:
    ```
@@ -61,9 +61,8 @@ To execute the script and deploy it with pm2, follow these steps:
    ```
 7. Start the script as a pm2 process with a specified name:
    ```
-   pm2 start ./deploy.sh --name reddit-auto-comment-bot --interpreter python3.6
+   pm2 start ./index.py --name reddit-auto-comment-bot --interpreter python --log-date-format="HH:mm DD-MM-YYYY" --restart-delay=0
    ```
-
 Now, the Reddit auto comment bot is up and running, ready to monitor new posts and comment on them based on your configured comment text.
 
 ## License
