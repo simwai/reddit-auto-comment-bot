@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "visualstudioexptteam.vscodeintellicode",
+        "visualstudioexptteam.vscodeintellicode-completions",
+        "ms-python.python",
+        "ms-python.black-formatter"
+    ]
+}
