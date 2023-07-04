@@ -1,3 +1,4 @@
+import datetime
 import praw
 import config
 from praw.exceptions import RedditAPIException
@@ -5,7 +6,13 @@ from praw.exceptions import RedditAPIException
 
 class RedditBot(praw.Reddit):
     def __init__(self, client_id, client_secret, username, password):
-        super().__init__(client_id=client_id, client_secret=client_secret, username=username, password=password, user_agent="my_bot/0.0.1")
+        super().__init__(
+            client_id=client_id,
+            client_secret=client_secret,
+            username=username,
+            password=password,
+            user_agent="my_bot/0.0.1",
+        )
         print("Authenticated as {}".format(self.user.me()))
 
     def run(self):
@@ -51,4 +58,7 @@ if __name__ == "__main__":
         password=config.REDDIT_PASSWORD,
     )
 
-    bot.run()
+    while True:
+        # Schedule bot to run once a day
+        if datetime.datetime.now().hour == 0:
+            bot.run()
