@@ -1,9 +1,5 @@
 @echo off
 
-:: Create and activate a virtual environment (optional but recommended)
-python -m venv myenv
-call myenv/Scripts/activate.bat
-
 :: Install dependencies
 pip install praw
 

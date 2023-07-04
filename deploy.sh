@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Create and activate a virtual environment (optional but recommended)
-python -m venv myenv
-source myenv/bin/activate
-
 # Install dependencies
 pip install praw
 
