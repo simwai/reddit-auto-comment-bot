@@ -1,8 +1,6 @@
 ## Reddit Auto Comment Bot
 [![IDE: VS Code](https://img.shields.io/badge/IDE-VS_Code-blue?logo=visual-studio-code)](https://code.visualstudio.com/)
 [![Style: black](https://img.shields.io/badge/Code%20Style-black-000000.svg)](https://github.com/psf/black)
-[![Quality: Qodana](https://github.com/simwai/reddit-auto-comment-bot/actions/workflows/qodana.yml/badge.svg)](https://github.com/simwai/reddit-auto-comment-bot/actions/workflows/qodana.yml)
-[![Security: CodeQL](https://github.com/simwai/reddit-auto-comment-bot/actions/workflows/codeql.yml/badge.svg?branch=main&event=push)](https://github.com/simwai/reddit-auto-comment-bot/actions/workflows/codeql.yml) 
 [![License: MIT](https://img.shields.io/badge/License-MIT-mediumpurple.svg)](https://opensource.org/licenses/MIT)
 
 The code you see here represents a Python script that automates commenting on new posts made by a specific Reddit user. It utilizes the PRAW library, which provides a convenient wrapper for the Reddit API.
