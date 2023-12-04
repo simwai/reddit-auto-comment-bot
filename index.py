@@ -1,3 +1,4 @@
+import calendar
 import datetime
 import praw
 import config
@@ -25,26 +26,33 @@ class RedditBot(praw.Reddit):
         post_stream = user.stream.submissions()
 
         for post in post_stream:
-            print("New post by {}: {}".format(post.author, post.title))
-            # Check if already commented on the post
-            if post.author == self.user.me():
-                continue
+            print("Post found from {}: {}".format(post.author, post.title))
 
             # Check if the post is within the allowed age limit
             if not self._is_post_recent(post):
                 continue
 
+            # Check if I already commented the post with the configured text
+            for comment in post.comments:
+                if (
+                    comment.author == self.user.me()
+                    and comment.body == config.COMMENT_TEXT
+                ):
+                    continue
+
             try:
                 post.reply(config.COMMENT_TEXT)
+                print("Created new command for post: {}".format(post))
             except RedditAPIException as e:
                 print("Failed to post comment: {}".format(str(e)))
 
-    def _is_post_recent(self, post, max_age=6):
+    def _is_post_recent(self, post, max_age=config.MAX_POST_AGE):
         """
         Check if a post is recent based on the provided max_age in months.
         """
-        current_time = self.reddit.user.me().created_utc
-        post_age = (current_time - post.created_utc) / (
+        date = datetime.datetime.utcnow()
+        current_utc_time = calendar.timegm(date.utctimetuple())
+        post_age = (current_utc_time - post.created_utc) / (
             60 * 60 * 24 * 30
         )  # Convert to months
         return post_age <= max_age
@@ -57,6 +65,10 @@ if __name__ == "__main__":
         username=config.REDDIT_USERNAME,
         password=config.REDDIT_PASSWORD,
     )
+
+    if config.DEBUG:
+        bot.run()
+        exit()
 
     while True:
         # Schedule bot to run once a day
